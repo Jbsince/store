@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ <div>
+        <img class="my_image my_image_padding" src="{% static 'img/banner.jpg' %}" alt="OUR PRODUCTS" width="1400">
+    </div>
+
+
+<form action="" method="post" class="form_class">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <th colspan="2">COLLAGE INVENTORY</th>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" name="name" required></td>
+        </tr>
+        <tr>
+            <td>DOB:</td>
+            <td><input type="date" name="dob" required></td>
+        </tr>
+        <tr>
+            <td>AGE:</td>
+            <td><input type="text" name="age" required></td>
+        </tr>
+        <tr>
+            <td>GENDER:</td>
+            <td>
+                <select name="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>PHONE NUMBER:</td>
+            <td><input type="tel" name="phone" required></td>
+        </tr>
+        <tr>
+            <td>MAIL ID:</td>
+            <td><input type="email" name="email" required></td>
+        </tr>
+        <tr>
+            <td>ADDRESS:</td>
+            <td><input type="text" name="address" required></td>
+        </tr>
+
+       <!-- Department dropdown -->
+        <tr>
+            <td><label for="id_department">Department:</label></td>
+            <td>
+                <select id="id_department" name="department" required>
+                    <option value="">--SELECT DEPARTMENT--</option>
+                    {% for department in departments %}
+                        <option value="{{ department.id }}">{{ department.dept_name }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+
+         <!-- Courses dropdown -->
+      <tr>
+    <td><label for="id_courses">Courses:</label></td>
+    <td>
+        <select id="id_courses" name="courses" required>
+            <option value="">--SELECT COURSE--</option>
+        </select>
+    </td>
+</tr>
+
+        <!-- Purpose dropdown -->
+        <tr>
+            <td><label for="id_purpose">Purpose:</label></td>
+            <td>
+                <select id="id_purpose" name="purpose" required>
+                    <option value="">--SELECT PURPOSE--</option>
+                    {% for purpose in purpose %}
+                        <option value="{{ purpose.id }}">{{ purpose.purpose }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+
+         <tr>
+            <td><label>Materials:</label></td>
+            <td>
+                <input type="checkbox" id="material_notebook" name="materials" value="Notebook">
+                <label for="material_notebook">Notebook</label>
+
+                <input type="checkbox" id="material_pen" name="materials" value="Pen">
+                <label for="material_pen">Pen</label>
+
+                <input type="checkbox" id="material_exam_papers" name="materials" value="Exam Papers">
+                <label for="material_exam_papers">Exam Papers</label>
+
+                <!-- Add more checkboxes as needed -->
+            </td>
+        </tr>
+
+ <!-- Submit button -->
+        <tr>
+            <td colspan="2"><button type="submit" class="btn btn-outline-success" onclick="confirmOrder()">CONFIRM </button>
+            <a href="{% url 'purchase' %}" class="btn btn-outline-success" type="submit">HOME</a>
+</td>
+        </tr>
+    </table>
+</form>
+
+
+<script>
+    $(document).ready(function() {
+        // Add an event listener to the department dropdown
+        $('#id_department').change(function() {
+            var selectedDepartmentId = $(this).val();
+
+            // Fetch courses based on the selected department
+            $.ajax({
+                url: '{% url "get_courses" %}',  // Replace with the actual URL for fetching courses
+                data: {'department_id': selectedDepartmentId},
+                dataType: 'json',
+                success: function(data) {
+                    // Update the courses dropdown options
+                    var coursesDropdown = $('#id_courses');
+                    coursesDropdown.empty();  // Clear existing options
+                    coursesDropdown.append('<option value="">--SELECT COURSE--</option>');
+                    $.each(data.courses, function(index, course) {
+                        coursesDropdown.append('<option value="' + course.id + '">' + course.course_name + '</option>');
+                    });
+                },
+                error: function(error) {
+                    console.error('Error fetching courses:', error);
+                }
+            });
+        });
+    });
+</script>
+
+ <script>
+        function confirmOrder() {
+            // Your order confirmation logic goes here
+
+            // Display a pop-up message
+            alert("YOUR ENQUIRY PLACED");
+        }
+    </script>
+{% endblock %}

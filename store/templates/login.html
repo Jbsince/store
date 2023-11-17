@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+ <table >
+     <form action="" method="post">
+        {% csrf_token %}
+    <tr>
+        <th colspan="2">Login Form</th>
+    </tr>
+    <tr>
+        <td>Username:</td>
+        <td><input type="text" id="username" name="username" required></td>
+    </tr>
+    <tr>
+        <td>Password:</td>
+        <td><input type="password" id="password" name="password" required></td>
+    </tr>
+    <tr>
+        <td colspan="2"><button class="login-button btn btn-outline-warning" >LOGIN</button>
+               Don't Have Access? <a href="{% url 'register' %}">Register</a>Here</td>
+
+    </tr>
+     </form>
+      {% for j in messages %}
+    <h3>{{ j }}</h3>
+    {% endfor %}
+</table>
+</div>
+
+{% endblock %}
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+<!-- your_template.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div>
+        <img class="my_image my_image_padding" src="{% static 'img/banner.jpg' %}" alt="OUR PRODUCTS" width="1400">
+    </div>
+
+    <div>
+        <p>Purchase your materials</p>
+        <a href="{% url 'booking' %}" class="btn btn-outline-success" type="submit">Purchase</a>
+    </div>
+{% endblock %}

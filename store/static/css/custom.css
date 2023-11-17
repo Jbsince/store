@@ -1,0 +1,177 @@
+.nav-item {
+    letter-spacing : .2em;
+    font-size : 14px;
+    text-transform : uppercase:
+}
+
+.dropdown-item {
+    letter-spacing : .2em;
+    font-size : 14px;
+    text-transform : uppercase:
+}
+
+body {
+    font-family : 'Roboto', sans-serif;
+
+}
+
+.my_footer p {
+    padding-top : 20px;
+    font-size : 14px;
+}
+
+.my_footer {
+    background-color : yellow;
+    height : 50px:
+}
+
+/*** category ***/
+
+.my_row_class {
+    padding-top : 15px;
+}
+
+.my_row_class .mx_auto{
+    color : #000;
+    font-size : 12px;
+}
+
+.my_image {
+    width : 100%;
+    height : auto;
+}
+
+.my_title {
+    font-size : 24px;
+    text-transform : uppercase;
+    letter-spacing : .2em;
+}
+
+.my_image_padding {
+    padding : 5px:
+}
+
+.my_bottom_margin {
+    margin-bottom :10px;
+}
+
+.card-body h4 {
+    font-size : 14px;
+    text-transform : uppercase;
+    letter-spacing : .2em;
+}
+
+/*** product ***/
+
+.my_prod_row_class {
+    padding-top : 15px;
+    padding-bottom : 20px;
+}
+
+my_prod_row_class .mx_auto{
+    color : #000;
+    font-size : 12px;
+    text-decoration : none;
+}
+
+.my_prod_title {
+     font-size : 14px;
+    text-transform : uppercase;
+    letter-spacing : .2em;
+    padding-top : 15px;
+    padding-bottom : 10px;
+}
+
+.my_prod_text {
+    padding-right : 20px;
+}
+
+.my_search_text {
+    padding_top  : 20px;
+}
+
+/*** cart ***/
+
+.my_custom_table {
+    min-width : 400px;
+    font-size : 14px;
+}
+
+.my_custom_thead {
+    font-weight : normal;
+    text-transform : uppercase;
+    letter-spacing : .2em;
+    background-color : #f8f8fa!important;
+}
+
+.custom_a {
+    text-decoration : none;
+}
+
+.custom_icon {
+    text-decoration : none;
+    color : #868e96 ! important;
+}
+.my_custom_button {
+    margin-top : 5px;
+}
+
+form {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* custom.css */
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+form {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+select, input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
